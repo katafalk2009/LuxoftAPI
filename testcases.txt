@@ -1,0 +1,48 @@
+PEOPLE
+I)	Positive tests, GET
+1.	Check status code on resource URL: https://swapi.dev/api/people
+2.	Check response on resource URL: https://swapi.dev/api/people
+3.	Check status code on ‘next’ from ‘people’ resource: https://swapi.dev/api/people?page=2
+4.	Check response on ‘next’ from ‘people’ resource: https://swapi.dev/api/people?page=2
+5.	Check status code on ID URL: https://swapi.dev/api/people/1
+6.	Check response on ID URL: https://swapi.dev/api/people/1
+7.	Get last ID from https://swapi.dev/api/people and check status code on its URL https://swapi.dev/api/people/82 (boundary values)
+8.	Get last ID from https://swapi.dev/api/people and check response on its URL https://swapi.dev/api/people/82 (boundary values)
+9.	Check status code on schema URL: https://swapi.dev/api/people/schema
+10.	Check status code with valid search data: https://swapi.dev/api/people/?search=yoda
+11.	Check response with valid search data: https://swapi.dev/api/people/?search=yoda
+12.	Check status code with invalid search data: https://swapi.dev/api/people/?search=blablabla
+13.	Check status code with invalid search data: https://swapi.dev/api/people/?search=blablabla
+14.	Check status code with format ‘wookie’: https://swapi.dev/api/people/1/?format=wookiee
+15.	Check response with format ‘wookie’: https://swapi.dev/api/people/1/?format=wookiee
+
+II)	Negative tests, GET
+1.	Check status code with wrong resource: https://swapi.dev/api/person
+2.	Check status code with ‘zero’ ID: https://swapi.dev/api/people/0
+3.	Check status code with ‘zero’ ID: https://swapi.dev/api/people/83
+4.	Check status code with invalid format: https://swapi.dev/api/people/1/?format=bookiee
+
+FILMS
+III)	Positive tests, GET
+16.	Check status code on resource URL: https://swapi.dev/api/films
+17.	Check response on resource URL: https://swapi.dev/api/films
+18.	Check status code on ID URL: https://swapi.dev/api/films/1
+19.	Check response on ID URL: https://swapi.dev/api/films/1
+20.	Get last ID from https://swapi.dev/api/films and check status code on its URL https://swapi.dev/api/films/6 (boundary values)
+21.	Get last ID from https://swapi.dev/api/films and check response on its URL https://swapi.dev/api/films/6 (boundary values)
+22.	Check status code on schema URL: https://swapi.dev/api/films/schema
+23.	Check status code with valid search data: https://swapi.dev/api/films/?search=Hope
+24.	Check response with valid search data: https://swapi.dev/api/films/?search=Hope
+25.	Check status code with invalid search data: https://swapi.dev/api/films/?search=blablabla
+26.	Check status code with invalid search data: https://swapi.dev/api/films/?search=blablabla
+27.	Check status code with format ‘wookie’: https://swapi.dev/api/films/1/?format=wookiee
+28.	Check response with format ‘wookie’: https://swapi.dev/api/films/1/?format=wookiee
+
+
+
+IV)	Negative tests, GET
+1.	Check status code with wrong resource: https://swapi.dev/api/multflims
+2.	Check status code with ‘zero’ ID: https://swapi.dev/api/films/0
+3.	Check status code with ‘zero’ ID: https://swapi.dev/api/films/7
+4.	Check status code with invalid format: https://swapi.dev/api/films/1/?format=bookiee
+5.	Check status code on ‘next’ page if there is no page 2: https://swapi.dev/api/films?page=2

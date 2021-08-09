@@ -1,17 +1,17 @@
 import requests
 import time
-from abc import ABC
+
 FILMS_URL = 'https://swapi.dev/api/films/'
 PEOPLE_URL = 'https://swapi.dev/api/people/'
-HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1)'
-                         ' AppleWebKit/537.36 (KHTML, like Gecko)'
-                         ' Chrome/39.0.2171.95 Safari/537.36'}
 
 
-class DATA(ABC):
+class DATA():
     def __init__(self, attributes):
         for key in attributes:
             setattr(self, key, attributes[key])
+    def __str__(self):
+        return [i for i in self.__dict__]
+
 
 
 def check_time(f):
@@ -25,41 +25,25 @@ def check_time(f):
 
 
 @check_time
-def get_object_data(url, headers):
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        obj = DATA(response.json())
-        return obj
-    else:
-        print(response)
+def get_object_data(url):
+    response = requests.get(url).json()
+    return DATA(response)
 
 
 @check_time
-def get_page_data(url, headers):
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        return data
-    else:
-        print(response)
+def get_page_data(url):
+    response = requests.get(url)
+    return response.json()
 
 
 @check_time
-def get_all_data(url, headers):
-    final_results = []
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        count = data['count']
-        for i in range(1, count+1):
-            response = requests.get(url+str(i), headers=headers)
-            if response.status_code == 200:
-                obj = DATA(response.json())
-                final_results.append(obj)
-            else:
-                print(response)
-    else:
-        print(response)
-    return final_results
+def get_all_data(url):
+    response = requests.get(url)
+    data = response.json()
+    count = data['count']
+    return [get_object_data(url+str(i)) for i in range(1, count+1)]
 
 
+
+for p in get_all_data(PEOPLE_URL):
+    print(p)
