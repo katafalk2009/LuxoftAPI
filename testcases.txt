@@ -12,7 +12,7 @@ I)	Positive tests, GET
 10.	Check status code with valid search data: https://swapi.dev/api/people/?search=yoda
 11.	Check response with valid search data: https://swapi.dev/api/people/?search=yoda
 12.	Check status code with invalid search data: https://swapi.dev/api/people/?search=blablabla
-13.	Check status code with invalid search data: https://swapi.dev/api/people/?search=blablabla
+13.	Check response code with invalid search data: https://swapi.dev/api/people/?search=blablabla
 14.	Check status code with format ‘wookie’: https://swapi.dev/api/people/1/?format=wookiee
 15.	Check response with format ‘wookie’: https://swapi.dev/api/people/1/?format=wookiee
 
@@ -41,8 +41,7 @@ III)	Positive tests, GET
 
 
 IV)	Negative tests, GET
-1.	Check status code with wrong resource: https://swapi.dev/api/multflims
-2.	Check status code with ‘zero’ ID: https://swapi.dev/api/films/0
-3.	Check status code with ‘zero’ ID: https://swapi.dev/api/films/7
-4.	Check status code with invalid format: https://swapi.dev/api/films/1/?format=bookiee
-5.	Check status code on ‘next’ page if there is no page 2: https://swapi.dev/api/films?page=2
+1.	Check status code with ‘zero’ ID: https://swapi.dev/api/films/0
+2.	Check status code with ‘zero’ ID: https://swapi.dev/api/films/7
+3.	Check status code with invalid format: https://swapi.dev/api/films/1/?format=bookiee
+4.	Check status code on ‘next’ page if there is no page 2: https://swapi.dev/api/films?page=2
